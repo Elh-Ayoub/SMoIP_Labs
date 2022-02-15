@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace Lab1
 {
-    public partial class UserMode : Form
+    public partial class AdminMode : Form
     {
         User auth;
-        public UserMode(User auth)
+        public AdminMode(User auth)
         {
             InitializeComponent();
             this.auth = auth;
-            welcomeMsg.Text = "Welcome back! " + auth.username;
         }
 
-        private void UserMode_Load(object sender, EventArgs e)
+        private void AdminMode_Load(object sender, EventArgs e)
         {
 
         }
@@ -37,6 +36,18 @@ namespace Lab1
             var f1 = new Form1();
             f1.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var f_user = new UserMode(auth);
+            f_user.Show();
+            this.Hide();
+        }
+
+        private void UserListBtn(object sender, EventArgs e)
+        {
+            //
         }
     }
 }

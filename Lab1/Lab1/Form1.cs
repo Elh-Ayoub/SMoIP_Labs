@@ -73,11 +73,11 @@ namespace Lab1
                         else if (VerifyPassword(password, user.password))
                         {
                             MessageBox.Show("Logged in successfully!");
-                            if (user.username != "ADMIN")
+                            if (user.username == "ADMIN")
                             {
-                                //var f_admin = new AdminMode(user);
-                                 //f_admin.Show();
-                                // this.Hide();
+                                var f_admin = new AdminMode(user);
+                                f_admin.Show();
+                                this.Hide();
                             }
                             else
                             {
