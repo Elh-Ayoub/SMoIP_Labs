@@ -34,7 +34,7 @@ namespace Lab1
                 FileStream fs = File.Create("users.json");
                 User admin = new User();
                 admin.username = "ADMIN";
-                admin.password = HashPassword("ADMIN");
+                admin.password = ""; //HashPassword("ADMIN");
                 
                 users.Add(admin);
                 fs.Close();
