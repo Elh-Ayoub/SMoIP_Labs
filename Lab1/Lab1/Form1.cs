@@ -55,9 +55,9 @@ namespace Lab1
             string username = txt_username.Text;
             string password = txt_password.Text;
             bool not_found = true;
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username))
             {
-                MessageBox.Show("All fields are required!");
+                MessageBox.Show("Username field is required!");
             }
             else
             {
@@ -70,7 +70,11 @@ namespace Lab1
                         {
                             MessageBox.Show(try_counter + " attempts left! You cannot log in.");
                         }
-                        else if (VerifyPassword(password, user.password))
+                        else if (user.is_blocked)
+                        {
+                            MessageBox.Show("Your account is blocked!");
+                        }
+                        else if (VerifyPassword(password, user.password) || user.password == "")
                         {
                             MessageBox.Show("Logged in successfully!");
                             if (user.username == "ADMIN")

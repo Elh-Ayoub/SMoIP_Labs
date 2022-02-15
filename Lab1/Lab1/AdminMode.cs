@@ -7,21 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.IO;
 
 namespace Lab1
 {
     public partial class AdminMode : Form
     {
         User auth;
+        public List<User> users = new List<User>();
+        DataTable dt = new DataTable();
+        DataRow dr;
         public AdminMode(User auth)
         {
             InitializeComponent();
             this.auth = auth;
+
         }
 
         private void AdminMode_Load(object sender, EventArgs e)
         {
-
+            usersListPanel.Visible = false;
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Username");
+            dt.Columns.Add("Blocked");
+            dt.Columns.Add("Restrictions");
+            
         }
 
         private void httpsgithubcomElhAyoubToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,17 +48,104 @@ namespace Lab1
             f1.Show();
             this.Hide();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void UpdatePassword_OnClick(object sender, EventArgs e)
         {
             var f_user = new UserMode(auth);
             f_user.Show();
             this.Hide();
         }
-
-        private void UserListBtn(object sender, EventArgs e)
+        private void GoBackBtn_OnClick(object sender, EventArgs e)
         {
-            //
+            usersListPanel.Visible = false;
+            welcomePanel.Visible = true;
+        }
+        private void UserListBtn_OnClick(object sender, EventArgs e)
+        {
+            usersListPanel.Visible = true;
+            welcomePanel.Visible = false;
+            dt.Rows.Clear();
+            GetUsers();
+            DisplayUsers();
+        }
+        public void DisplayUsers()
+        {
+            int i = 1;
+            foreach(var user in users)
+            {
+                dr = dt.NewRow();
+                dr[0] = i;
+                dr[1] = user.username;
+                dr[2] = (user.is_blocked) ? ("yes") : ("no");
+                dr[3] = (user.disable_restrictions) ? ("disabled") : ("enabled");
+                dt.Rows.Add(dr);
+                i++;
+            }
+            UsersDataGrid.DataSource = dt;
+        }
+        public void GetUsers()
+        {
+            string json = File.ReadAllText("users.json");
+            users = JsonSerializer.Deserialize<List<User>>(json);
+        }
+
+        public void SetUsers()
+        {
+            string jsonString = JsonSerializer.Serialize(users);
+            File.WriteAllText("users.json", jsonString);
+        }
+
+        private void SaveChanges_OnClick(object sender, EventArgs e)
+        {
+            List<User> new_users = new List<User>();
+            foreach(DataRow row in dt.Rows)
+            {                
+                if (!string.IsNullOrEmpty(row[1].ToString()) && !usernameExist(new_users, row[1].ToString()))
+                {
+                    User user;
+                    int index = (!string.IsNullOrEmpty(row[0].ToString())) ? int.Parse(row[0].ToString()) : (-1);
+                    if (index <= users.Count() && index != -1)
+                    {
+                        user = users[index - 1];
+                        user.username = row[1].ToString();
+                        user.is_blocked = (row[2].ToString() == "yes") ? (true) : (false);
+                        user.disable_restrictions = (row[3].ToString() == "disabled") ? (true) : (false);
+                        new_users.Add(user);
+                    }
+                    else
+                    {
+                        user = new User();
+                        user.username = row[1].ToString();
+                        user.password = "";
+                        user.is_blocked = (row[2].ToString() == "yes") ? (true) : (false);
+                        user.disable_restrictions = (row[3].ToString() == "disabled") ? (true) : (false);
+                        new_users.Add(user);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ERROR! username duplicated or row without username inputted!");
+                }                
+            }
+            users = new_users;
+            SetUsers();
+            usersListPanel.Visible = true;
+            welcomePanel.Visible = false;
+            dt.Rows.Clear();
+            GetUsers();
+            DisplayUsers();
+        }
+
+        public bool usernameExist(List<User> c_users, string username)
+        {
+            bool exist = false;
+            foreach(var user in c_users)
+            {
+                if (user.username == username)
+                {
+                    exist = true;
+                }
+            }
+            return exist;
         }
     }
 }
