@@ -31,86 +31,29 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMode));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.welcomePanel = new System.Windows.Forms.Panel();
+            this.welcomeMsg = new System.Windows.Forms.Label();
+            this.UpdatePassword = new System.Windows.Forms.Button();
+            this.UserListBtn = new System.Windows.Forms.Button();
+            this.usersListPanel = new System.Windows.Forms.Panel();
+            this.save_changes = new System.Windows.Forms.Button();
+            this.GoBackBtn = new System.Windows.Forms.Button();
+            this.UsersDataGrid = new System.Windows.Forms.DataGridView();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.developedByAyoubElHaddadiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupKH919IeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpsgithubcomElhAyoubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.welcomePanel = new System.Windows.Forms.Panel();
-            this.welcomeMsg = new System.Windows.Forms.Label();
-            this.UpdatePassword = new System.Windows.Forms.Button();
-            this.UserListBtn = new System.Windows.Forms.Button();
-            this.usersListPanel = new System.Windows.Forms.Panel();
-            this.GoBackBtn = new System.Windows.Forms.Button();
-            this.UsersDataGrid = new System.Windows.Forms.DataGridView();
-            this.save_changes = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordRestrictionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.welcomePanel.SuspendLayout();
             this.usersListPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UsersDataGrid)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.gitHubToolStripMenuItem,
-            this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(872, 36);
-            this.menuStrip1.TabIndex = 14;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.developedByAyoubElHaddadiToolStripMenuItem,
-            this.groupKH919IeToolStripMenuItem});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // developedByAyoubElHaddadiToolStripMenuItem
-            // 
-            this.developedByAyoubElHaddadiToolStripMenuItem.Name = "developedByAyoubElHaddadiToolStripMenuItem";
-            this.developedByAyoubElHaddadiToolStripMenuItem.Size = new System.Drawing.Size(399, 32);
-            this.developedByAyoubElHaddadiToolStripMenuItem.Text = "Developed by: Ayoub El-Haddadi";
-            // 
-            // groupKH919IeToolStripMenuItem
-            // 
-            this.groupKH919IeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.groupKH919IeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.groupKH919IeToolStripMenuItem.Name = "groupKH919IeToolStripMenuItem";
-            this.groupKH919IeToolStripMenuItem.Padding = new System.Windows.Forms.Padding(1);
-            this.groupKH919IeToolStripMenuItem.Size = new System.Drawing.Size(401, 32);
-            this.groupKH919IeToolStripMenuItem.Text = "Group: KH 919 i.e";
-            // 
-            // gitHubToolStripMenuItem
-            // 
-            this.gitHubToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.httpsgithubcomElhAyoubToolStripMenuItem});
-            this.gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
-            this.gitHubToolStripMenuItem.Size = new System.Drawing.Size(91, 32);
-            this.gitHubToolStripMenuItem.Text = "GitHub";
-            // 
-            // httpsgithubcomElhAyoubToolStripMenuItem
-            // 
-            this.httpsgithubcomElhAyoubToolStripMenuItem.Name = "httpsgithubcomElhAyoubToolStripMenuItem";
-            this.httpsgithubcomElhAyoubToolStripMenuItem.Size = new System.Drawing.Size(379, 32);
-            this.httpsgithubcomElhAyoubToolStripMenuItem.Text = "https://github.com/Elh-Ayoub";
-            this.httpsgithubcomElhAyoubToolStripMenuItem.Click += new System.EventHandler(this.httpsgithubcomElhAyoubToolStripMenuItem_Click);
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(88, 32);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // welcomePanel
             // 
@@ -178,6 +121,24 @@
             this.usersListPanel.Size = new System.Drawing.Size(872, 457);
             this.usersListPanel.TabIndex = 15;
             // 
+            // save_changes
+            // 
+            this.save_changes.BackColor = System.Drawing.Color.DarkGray;
+            this.save_changes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.save_changes.FlatAppearance.BorderSize = 3;
+            this.save_changes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.save_changes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.save_changes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save_changes.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.save_changes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.save_changes.Location = new System.Drawing.Point(573, 385);
+            this.save_changes.Name = "save_changes";
+            this.save_changes.Size = new System.Drawing.Size(242, 57);
+            this.save_changes.TabIndex = 10;
+            this.save_changes.Text = "Save changes";
+            this.save_changes.UseVisualStyleBackColor = false;
+            this.save_changes.Click += new System.EventHandler(this.SaveChanges_OnClick);
+            // 
             // GoBackBtn
             // 
             this.GoBackBtn.BackColor = System.Drawing.Color.DarkGray;
@@ -224,23 +185,89 @@
             this.UsersDataGrid.Size = new System.Drawing.Size(852, 352);
             this.UsersDataGrid.TabIndex = 0;
             // 
-            // save_changes
+            // aboutToolStripMenuItem
             // 
-            this.save_changes.BackColor = System.Drawing.Color.DarkGray;
-            this.save_changes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.save_changes.FlatAppearance.BorderSize = 3;
-            this.save_changes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.save_changes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.save_changes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save_changes.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_changes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.save_changes.Location = new System.Drawing.Point(573, 385);
-            this.save_changes.Name = "save_changes";
-            this.save_changes.Size = new System.Drawing.Size(242, 57);
-            this.save_changes.TabIndex = 10;
-            this.save_changes.Text = "Save changes";
-            this.save_changes.UseVisualStyleBackColor = false;
-            this.save_changes.Click += new System.EventHandler(this.SaveChanges_OnClick);
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.developedByAyoubElHaddadiToolStripMenuItem,
+            this.groupKH919IeToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // developedByAyoubElHaddadiToolStripMenuItem
+            // 
+            this.developedByAyoubElHaddadiToolStripMenuItem.Name = "developedByAyoubElHaddadiToolStripMenuItem";
+            this.developedByAyoubElHaddadiToolStripMenuItem.Size = new System.Drawing.Size(399, 32);
+            this.developedByAyoubElHaddadiToolStripMenuItem.Text = "Developed by: Ayoub El-Haddadi";
+            // 
+            // groupKH919IeToolStripMenuItem
+            // 
+            this.groupKH919IeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.groupKH919IeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.groupKH919IeToolStripMenuItem.Name = "groupKH919IeToolStripMenuItem";
+            this.groupKH919IeToolStripMenuItem.Padding = new System.Windows.Forms.Padding(1);
+            this.groupKH919IeToolStripMenuItem.Size = new System.Drawing.Size(401, 32);
+            this.groupKH919IeToolStripMenuItem.Text = "Group: KH 919 i.e   -  Variant: 8";
+            // 
+            // gitHubToolStripMenuItem
+            // 
+            this.gitHubToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.httpsgithubcomElhAyoubToolStripMenuItem});
+            this.gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
+            this.gitHubToolStripMenuItem.Size = new System.Drawing.Size(91, 32);
+            this.gitHubToolStripMenuItem.Text = "GitHub";
+            // 
+            // httpsgithubcomElhAyoubToolStripMenuItem
+            // 
+            this.httpsgithubcomElhAyoubToolStripMenuItem.Name = "httpsgithubcomElhAyoubToolStripMenuItem";
+            this.httpsgithubcomElhAyoubToolStripMenuItem.Size = new System.Drawing.Size(379, 32);
+            this.httpsgithubcomElhAyoubToolStripMenuItem.Text = "https://github.com/Elh-Ayoub";
+            this.httpsgithubcomElhAyoubToolStripMenuItem.Click += new System.EventHandler(this.httpsgithubcomElhAyoubToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(88, 32);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.gitHubToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(872, 36);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.passwordToolStripMenuItem,
+            this.passwordRestrictionsToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(399, 32);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // passwordToolStripMenuItem
+            // 
+            this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
+            this.passwordToolStripMenuItem.Size = new System.Drawing.Size(301, 32);
+            this.passwordToolStripMenuItem.Text = "Password protection";
+            this.passwordToolStripMenuItem.Click += new System.EventHandler(this.passwordToolStripMenuItem_Click);
+            // 
+            // passwordRestrictionsToolStripMenuItem
+            // 
+            this.passwordRestrictionsToolStripMenuItem.Name = "passwordRestrictionsToolStripMenuItem";
+            this.passwordRestrictionsToolStripMenuItem.Size = new System.Drawing.Size(301, 32);
+            this.passwordRestrictionsToolStripMenuItem.Text = "Password restrictions";
+            this.passwordRestrictionsToolStripMenuItem.Click += new System.EventHandler(this.passwordRestrictionsToolStripMenuItem_Click);
             // 
             // AdminMode
             // 
@@ -257,25 +284,18 @@
             this.Name = "AdminMode";
             this.Text = "Admin mode";
             this.Load += new System.EventHandler(this.AdminMode_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.welcomePanel.ResumeLayout(false);
             this.welcomePanel.PerformLayout();
             this.usersListPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UsersDataGrid)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem developedByAyoubElHaddadiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem groupKH919IeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gitHubToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem httpsgithubcomElhAyoubToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Panel welcomePanel;
         private System.Windows.Forms.Panel usersListPanel;
         private System.Windows.Forms.DataGridView UsersDataGrid;
@@ -284,5 +304,15 @@
         private System.Windows.Forms.Button UserListBtn;
         private System.Windows.Forms.Button GoBackBtn;
         private System.Windows.Forms.Button save_changes;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem developedByAyoubElHaddadiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupKH919IeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gitHubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem httpsgithubcomElhAyoubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordRestrictionsToolStripMenuItem;
     }
 }

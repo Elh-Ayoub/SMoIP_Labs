@@ -81,6 +81,8 @@ namespace Lab1
                 i++;
             }
             UsersDataGrid.DataSource = dt;
+            UsersDataGrid.Columns["Id"].ReadOnly = true;
+            UsersDataGrid.Rows[0].ReadOnly = true;
         }
         public void GetUsers()
         {
@@ -146,6 +148,14 @@ namespace Lab1
                 }
             }
             return exist;
+        }
+        private void passwordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Type of password protection:  Password encryption.");
+        }
+        private void passwordRestrictionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("The presence of Latin letters and symbols of the Cyrillic alphabet.");
         }
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.txt_password = new System.Windows.Forms.TextBox();
+            this.txtCurrPass = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +41,11 @@
             this.groupKH919IeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpsgithubcomElhAyoubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.welcomeMsg = new System.Windows.Forms.Label();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.welcomeMsg = new System.Windows.Forms.Label();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordProtectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordRestrictionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,15 +65,16 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Save_OnClick);
             // 
-            // txt_password
+            // txtCurrPass
             // 
-            this.txt_password.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_password.Location = new System.Drawing.Point(415, 132);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.PasswordChar = '*';
-            this.txt_password.Size = new System.Drawing.Size(336, 40);
-            this.txt_password.TabIndex = 7;
+            this.txtCurrPass.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrPass.Location = new System.Drawing.Point(415, 132);
+            this.txtCurrPass.Name = "txtCurrPass";
+            this.txtCurrPass.PasswordChar = '*';
+            this.txtCurrPass.Size = new System.Drawing.Size(336, 40);
+            this.txtCurrPass.TabIndex = 7;
             // 
             // txtPassword
             // 
@@ -83,14 +87,14 @@
             this.txtPassword.TabIndex = 6;
             this.txtPassword.Text = "Current password: ";
             // 
-            // textBox1
+            // txtNewPass
             // 
-            this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(415, 204);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(336, 40);
-            this.textBox1.TabIndex = 10;
+            this.txtNewPass.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPass.Location = new System.Drawing.Point(415, 204);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.PasswordChar = '*';
+            this.txtNewPass.Size = new System.Drawing.Size(336, 40);
+            this.txtNewPass.TabIndex = 10;
             // 
             // label1
             // 
@@ -103,14 +107,14 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "New password: ";
             // 
-            // textBox2
+            // txtConfirmPass
             // 
-            this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(415, 278);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(336, 40);
-            this.textBox2.TabIndex = 12;
+            this.txtConfirmPass.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPass.Location = new System.Drawing.Point(415, 278);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '*';
+            this.txtConfirmPass.Size = new System.Drawing.Size(336, 40);
+            this.txtConfirmPass.TabIndex = 12;
             // 
             // label2
             // 
@@ -141,7 +145,8 @@
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.developedByAyoubElHaddadiToolStripMenuItem,
-            this.groupKH919IeToolStripMenuItem});
+            this.groupKH919IeToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
             this.aboutToolStripMenuItem.Text = "About";
@@ -159,7 +164,7 @@
             this.groupKH919IeToolStripMenuItem.Name = "groupKH919IeToolStripMenuItem";
             this.groupKH919IeToolStripMenuItem.Padding = new System.Windows.Forms.Padding(1);
             this.groupKH919IeToolStripMenuItem.Size = new System.Drawing.Size(401, 32);
-            this.groupKH919IeToolStripMenuItem.Text = "Group: KH 919 i.e";
+            this.groupKH919IeToolStripMenuItem.Text = "Group: KH 919 i.e   -  Variant: 8";
             // 
             // gitHubToolStripMenuItem
             // 
@@ -176,6 +181,13 @@
             this.httpsgithubcomElhAyoubToolStripMenuItem.Text = "https://github.com/Elh-Ayoub";
             this.httpsgithubcomElhAyoubToolStripMenuItem.Click += new System.EventHandler(this.httpsgithubcomElhAyoubToolStripMenuItem_Click);
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(88, 32);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // welcomeMsg
             // 
             this.welcomeMsg.AutoSize = true;
@@ -186,12 +198,28 @@
             this.welcomeMsg.TabIndex = 14;
             this.welcomeMsg.Text = "Welcome back! User";
             // 
-            // logoutToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(88, 32);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.passwordProtectionToolStripMenuItem,
+            this.passwordRestrictionsToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(399, 32);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // passwordProtectionToolStripMenuItem
+            // 
+            this.passwordProtectionToolStripMenuItem.Name = "passwordProtectionToolStripMenuItem";
+            this.passwordProtectionToolStripMenuItem.Size = new System.Drawing.Size(301, 32);
+            this.passwordProtectionToolStripMenuItem.Text = "Password protection";
+            this.passwordProtectionToolStripMenuItem.Click += new System.EventHandler(this.passwordProtectionToolStripMenuItem_Click);
+            // 
+            // passwordRestrictionsToolStripMenuItem
+            // 
+            this.passwordRestrictionsToolStripMenuItem.Name = "passwordRestrictionsToolStripMenuItem";
+            this.passwordRestrictionsToolStripMenuItem.Size = new System.Drawing.Size(301, 32);
+            this.passwordRestrictionsToolStripMenuItem.Text = "Password restrictions";
+            this.passwordRestrictionsToolStripMenuItem.Click += new System.EventHandler(this.passwordRestrictionsToolStripMenuItem_Click);
             // 
             // UserMode
             // 
@@ -201,17 +229,18 @@
             this.ClientSize = new System.Drawing.Size(808, 455);
             this.Controls.Add(this.welcomeMsg);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtConfirmPass);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNewPass);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txt_password);
+            this.Controls.Add(this.txtCurrPass);
             this.Controls.Add(this.txtPassword);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.MaximizeBox = false;
             this.Name = "UserMode";
             this.Text = "Update password";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserMode_FormClosed);
             this.Load += new System.EventHandler(this.UserMode_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -223,11 +252,11 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txt_password;
+        private System.Windows.Forms.TextBox txtCurrPass;
         private System.Windows.Forms.Label txtPassword;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtConfirmPass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
@@ -237,5 +266,8 @@
         private System.Windows.Forms.ToolStripMenuItem httpsgithubcomElhAyoubToolStripMenuItem;
         private System.Windows.Forms.Label welcomeMsg;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordProtectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordRestrictionsToolStripMenuItem;
     }
 }
