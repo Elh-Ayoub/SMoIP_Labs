@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserMode));
             this.button1 = new System.Windows.Forms.Button();
             this.txtCurrPass = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.Label();
@@ -237,6 +238,7 @@
             this.Controls.Add(this.txtCurrPass);
             this.Controls.Add(this.txtPassword);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UserMode";
             this.Text = "Update password";
