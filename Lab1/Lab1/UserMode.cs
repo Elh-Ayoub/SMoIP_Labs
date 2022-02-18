@@ -63,6 +63,10 @@ namespace Lab1
             {
                 if(new_pass == new_pass_confirm)
                 {
+                    if (!auth.disable_restrictions)
+                    {
+                        new_pass = ApplyRestictions(new_pass);
+                    }
                     string hashedPass = PasswordHasher.HashPassword(new_pass);
                     user = users.Find(u => u.username == auth.username);
                     user.password = hashedPass;

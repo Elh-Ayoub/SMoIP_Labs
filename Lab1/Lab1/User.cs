@@ -11,6 +11,7 @@ namespace Lab1
         public string username { get; set; }
         public string password { get; set; } = "";
         public bool is_blocked { get; set; } = false;
+        public string role { get; set; } = "user";
         public bool disable_restrictions { get; set; } = false;
     }
 }

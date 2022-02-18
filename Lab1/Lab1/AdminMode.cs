@@ -30,6 +30,7 @@ namespace Lab1
             usersListPanel.Visible = false;
             dt.Columns.Add("Id");
             dt.Columns.Add("Username");
+            dt.Columns.Add("Role");
             dt.Columns.Add("Blocked");
             dt.Columns.Add("Restrictions");
             
@@ -75,8 +76,9 @@ namespace Lab1
                 dr = dt.NewRow();
                 dr[0] = i;
                 dr[1] = user.username;
-                dr[2] = (user.is_blocked) ? ("yes") : ("no");
-                dr[3] = (user.disable_restrictions) ? ("disabled") : ("enabled");
+                dr[2] = user.role;
+                dr[3] = (user.is_blocked) ? ("yes") : ("no");
+                dr[4] = (user.disable_restrictions) ? ("disabled") : ("enabled");
                 dt.Rows.Add(dr);
                 i++;
             }
@@ -109,8 +111,9 @@ namespace Lab1
                     {
                         user = users[index - 1];
                         user.username = row[1].ToString();
-                        user.is_blocked = (row[2].ToString() == "yes") ? (true) : (false);
-                        user.disable_restrictions = (row[3].ToString() == "disabled") ? (true) : (false);
+                        user.role = (row[2].ToString() == "admin") ? ("admin") : ("user");
+                        user.is_blocked = (row[3].ToString() == "yes");
+                        user.disable_restrictions = (row[4].ToString() == "disabled");
                         new_users.Add(user);
                     }
                     else
@@ -118,8 +121,9 @@ namespace Lab1
                         user = new User();
                         user.username = row[1].ToString();
                         user.password = "";
-                        user.is_blocked = (row[2].ToString() == "yes") ? (true) : (false);
-                        user.disable_restrictions = (row[3].ToString() == "disabled") ? (true) : (false);
+                        user.role = (row[2].ToString() == "admin") ? ("admin") : ("user");
+                        user.is_blocked = (row[3].ToString() == "yes");
+                        user.disable_restrictions = (row[4].ToString() == "disabled");
                         new_users.Add(user);
                     }
                 }

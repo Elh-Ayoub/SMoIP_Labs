@@ -34,6 +34,7 @@ namespace Lab1
                 FileStream fs = File.Create("users.json");
                 User admin = new User();
                 admin.username = "ADMIN";
+                admin.role = "admin";
                 admin.password = ""; //HashPassword("ADMIN");
                 
                 users.Add(admin);
@@ -77,7 +78,7 @@ namespace Lab1
                         else if (PasswordHasher.VerifyPassword(password, user.password) || user.password == "")
                         {
                             MessageBox.Show("Logged in successfully!");
-                            if (user.username == "ADMIN")
+                            if (user.role == "admin")
                             {
                                 var f_admin = new AdminMode(user);
                                 f_admin.Show();
