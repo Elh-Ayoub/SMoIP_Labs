@@ -141,7 +141,7 @@ namespace Lab1
 
         private void UserMode_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(auth.username == "ADMIN")
+            if(auth.role == "admin")
             {
                 var f_admin = new AdminMode(auth);
                 f_admin.Show();
