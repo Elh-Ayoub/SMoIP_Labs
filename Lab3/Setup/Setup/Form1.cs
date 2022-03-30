@@ -10,7 +10,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
-using System.Reflection;
 
 namespace Setup
 {
@@ -68,12 +67,17 @@ namespace Setup
                 GetKeyboardLayoutName(keyboard);
                 DriveInfo[] allDrives = DriveInfo.GetDrives();
                 string drives_set = "";
+                string program_disk = "";
                 foreach (DriveInfo d in allDrives)
                 {
                     drives_set += d.Name + "_";
+                    if (d.Name[0] == folderBrowserDialog1.SelectedPath[0])
+                    {
+                        program_disk = "program installed at disk: " + d.Name + " Amount:" + d.TotalSize;
+                    }
                 }
                 string KEY = Environment.UserName + "_" + Environment.MachineName + "_" + folderBrowserDialog1.SelectedPath + "\\Lab3" + "_" +
-                Environment.SystemDirectory + "_" + keyboard + "_" + SystemInformation.PrimaryMonitorSize.Width + "_" + drives_set + sn;
+                Environment.SystemDirectory + "_" + keyboard + "_" + SystemInformation.PrimaryMonitorSize.Width + "_" + drives_set + "_" + program_disk + sn;
                 Microsoft.Win32.RegistryKey key;
                 key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software", true);
                 key.CreateSubKey("El-Haddadi");
