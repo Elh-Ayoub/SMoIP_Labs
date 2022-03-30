@@ -50,7 +50,7 @@ namespace Setup
         private static extern long GetKeyboardLayoutName(StringBuilder pwszKLID);
         private void Install_Click(object sender, EventArgs e)
         {
-            if (isChosen)
+            if (isChosen && txt_registry.Text != "")
             {
                 //File.WriteAllBytes(folderBrowserDialog1.SelectedPath + "\\Lab3.exe", ALL);
                 install();
@@ -80,14 +80,14 @@ namespace Setup
                 Environment.SystemDirectory + "_" + keyboard + "_" + SystemInformation.PrimaryMonitorSize.Width + "_" + drives_set + "_" + program_disk + sn;
                 Microsoft.Win32.RegistryKey key;
                 key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software", true);
-                key.CreateSubKey("El-Haddadi");
+                key.CreateSubKey(txt_registry.Text);
                 key.Close();
-                key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\El-Haddadi", true);
+                key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\" + txt_registry.Text, true);
                 key.SetValue("KEY", KEY, Microsoft.Win32.RegistryValueKind.String);
                 key.Close();
                 MessageBox.Show("Installation Success");
             }
-            else MessageBox.Show("Intsallation path not selected! Please select one.");
+            else MessageBox.Show("Intsallation path or register name not selected! Please select one.");
         }
 
         private void install()
