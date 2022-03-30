@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Text.Json;
 using System.Security.Cryptography;
 using System.Text;
+using System.Management;
 
 namespace Lab3
 {
@@ -17,13 +18,55 @@ namespace Lab3
     {
         public List<User> users = new List<User>();
         int try_counter = 3;
+        string sn;
         public Form1()
         {
             InitializeComponent();
         }
-
+        [ System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern long GetKeyboardLayoutName(StringBuilder pwszKLID);
         private void Form1_Load(object sender, EventArgs e)
         {
+            ManagementClass mc = new ManagementClass("Win32_DiskDrive");
+            ManagementObjectCollection moc = mc.GetInstances();
+            if (moc.Count != 0)
+                foreach (ManagementObject mo in moc)
+                {
+
+                    sn = mo["SerialNumber"].ToString();
+
+                }
+            StringBuilder keyboard = new StringBuilder(9);
+            GetKeyboardLayoutName(keyboard);
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            string drives_set = "";
+            foreach (DriveInfo d in allDrives)
+            {
+                drives_set += d.Name + "_";
+            }
+            string KEY = Environment.UserName + "_" + Environment.MachineName + "_" + Directory.GetCurrentDirectory() + "_" +
+            Environment.SystemDirectory + "_" + keyboard + "_" + SystemInformation.PrimaryMonitorSize.Width + "_" + drives_set + sn;
+
+            Microsoft.Win32.RegistryKey key;
+
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\El-Haddadi");
+            try
+            {
+                string mm = key.GetValue("KEY").ToString();
+                if (!string.Equals(KEY, mm))
+                {
+                    key.Close();
+                    MessageBox.Show("COPYRIGHTS ERROR!");
+                    this.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("COPYRIGHTS ERROR!");
+                this.Close();
+            }
+            key.Close();
+
             if (File.Exists("users.json") && (File.ReadAllText("users.json") != "" && File.ReadAllText("users.json") != "[]"))
             {
                 string json = File.ReadAllText("users.json");
