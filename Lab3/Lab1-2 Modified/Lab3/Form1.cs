@@ -11,7 +11,7 @@ using System.Text.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Management;
-
+using Microsoft.VisualBasic;
 namespace Lab3
 {
     public partial class Form1 : Form
@@ -27,6 +27,7 @@ namespace Lab3
         private static extern long GetKeyboardLayoutName(StringBuilder pwszKLID);
         private void Form1_Load(object sender, EventArgs e)
         {
+            string registry_name = Interaction.InputBox("Please input the name of the undressed registry", "Undressed registry");
             ManagementClass mc = new ManagementClass("Win32_DiskDrive");
             ManagementObjectCollection moc = mc.GetInstances();
             if (moc.Count != 0)
@@ -54,7 +55,7 @@ namespace Lab3
 
             Microsoft.Win32.RegistryKey key;
 
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\El-Haddadi");
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\" + registry_name);
             try
             {
                 string mm = key.GetValue("KEY").ToString();
