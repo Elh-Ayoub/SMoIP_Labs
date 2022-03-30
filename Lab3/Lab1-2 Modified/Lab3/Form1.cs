@@ -62,13 +62,21 @@ namespace Lab3
                 if (!string.Equals(KEY, mm))
                 {
                     key.Close();
-                    MessageBox.Show("COPYRIGHTS ERROR!");
+                    MessageBox.Show("COPYRIGHTS ERROR!\nuser name: " + Environment.UserName + 
+                        "\nComputer name: " + Environment.MachineName + "\nWindows folder: " + Directory.GetCurrentDirectory() +
+                        "\nWindows system files folder: " + Environment.SystemDirectory +
+                        "\nKeyboard: " + keyboard + "\nScreen width: " + SystemInformation.PrimaryMonitorSize.Width + 
+                        "\nSet of drives: " + drives_set+ "\nDisk on which program is installed: " + program_disk);
                     this.Close();
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("COPYRIGHTS ERROR!");
+                MessageBox.Show("COPYRIGHTS ERROR!\nuser name: " + Environment.UserName +
+                        "\nComputer name: " + Environment.MachineName + "\nWindows folder: " + Directory.GetCurrentDirectory() +
+                        "\nWindows system files folder: " + Environment.SystemDirectory +
+                        "\nKeyboard: " + keyboard + "\nScreen width: " + SystemInformation.PrimaryMonitorSize.Width +
+                        "\nSet of drives: " + drives_set + "\nDisk on which program is installed: " + program_disk);
                 this.Close();
             }
             key.Close();
