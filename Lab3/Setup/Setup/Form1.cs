@@ -25,18 +25,18 @@ namespace Setup
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            label1.Text = "";
-            ALL = File.ReadAllBytes(dir_path + "Lab3.exe");
+            //label1.Text = "";
+            //ALL = File.ReadAllBytes(dir_path + "Lab3.exe");
             //ALL = ALL.Concat(ALL2).ToArray();
-            string[] A = new string[ALL.Length + 1];
+            //string[] A = new string[ALL.Length + 1];
 
-            A[0] = "byte[] ALL = { ";
-            for (int i = 1; i < A.Length; i++)
-            {
-                A[i] = "0x" + ALL[i - 1].ToString("x") + ",";
-            }
-            File.WriteAllLines("tat.txt", A);
-            File.WriteAllBytes("Lab3.exe", ALL);
+            //A[0] = "byte[] ALL = { ";
+            //for (int i = 1; i < A.Length; i++)
+            //{
+            //    A[i] = "0x" + ALL[i - 1].ToString("x") + ",";
+            //}
+           // File.WriteAllLines("tat.txt", A);
+           // File.WriteAllBytes("Lab3.exe", ALL);
         }
         private void button1_Click(object sender, EventArgs e)
         {
