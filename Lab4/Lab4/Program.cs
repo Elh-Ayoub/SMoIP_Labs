@@ -57,7 +57,6 @@ namespace Lab4
             ms.Close();
             ms.Dispose();
             Console.WriteLine("Compressed successfuly!");
-
         }
 
         static void decompression(string inputPath, string destination)
