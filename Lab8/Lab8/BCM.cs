@@ -35,12 +35,8 @@ namespace Lab8
 
             for (int i = 0; i < img.Width; i++)
             {
-                for (int j = 0; j < img.Height; j += 4)
+                for (int j = 0; j < img.Height && k < message.Length; j += 4)
                 {
-                    if (k == message.Length)
-                    {
-                        break;
-                    }
                     int max_index = (j + 3 >= img.Height) ? (img.Height - 1) : (j + 3);
                     int index = random.Next(j, max_index);
                     Color pixel = img.GetPixel(i, index);
@@ -77,42 +73,43 @@ namespace Lab8
 
         public void extract(string path, string KeyPath)
         {
-            string[] s_key = File.ReadAllText(KeyPath).Split('-');
-            int[] key = Array.ConvertAll(s_key, s => int.Parse(s));
-            int k = 0;
+            string[] key = File.ReadAllText(KeyPath).Split('-');
+            //int[] key = Array.ConvertAll(s_key, s => int.Parse(s));
             Image image = Image.FromFile(path);
             Bitmap img = new Bitmap(image);
             string d_message = "";
            
             for (int i = 0; i < key.Length; i += 2)
             {
-                int x = key[i];
-                int y = key[i + 1];
+                int x = int.Parse(key[i]);
+                int y = int.Parse(key[i + 1]);
                 Color pixel = img.GetPixel(x, y);
                 // R byte 
-                byte r = pixel.R;
-                string r_bin = Convert.ToString(r, 2).PadLeft(8, '0');
-                d_message += r_bin.Substring(r_bin.Length - 2);
+                d_message += getBits(pixel.R, 2);
 
-                // B byte 
-                byte b = pixel.B;
-                string b_bin = Convert.ToString(b, 2).PadLeft(8, '0');
-                d_message += b_bin.Substring(b_bin.Length - 2);
+                // B byte
+                d_message += getBits(pixel.B, 2);
+                Console.Write("\rExtracting... \t{0}%", ((i * 100) / key.Length));
             }
-
+            Console.Write("\rExtracting... \t{0}%", 100);
             image.Dispose();
+            Console.WriteLine("\nWrite path to save results (with file name):");
+            string resPath = Console.ReadLine();
+
             int numOfBytes = d_message.Length / 8;
             byte[] bytes = new byte[numOfBytes];
             for (int i = 0; i < numOfBytes; ++i)
             {
                 bytes[i] = Convert.ToByte(d_message.Substring(8 * i, 8), 2);
-            }
-            Console.WriteLine("Write path to save results (with file name):");
-            string resPath = Console.ReadLine();
+            }            
             File.WriteAllBytes(resPath, bytes);
             successMsg("Data extracted successfully!");
         }
-
+        private string getBits(byte b, int bitsNumber)
+        {
+            string bin = Convert.ToString(b, 2).PadLeft(8, '0');
+            return bin.Substring(bin.Length - bitsNumber);
+        }
         private void printLine(int a)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
