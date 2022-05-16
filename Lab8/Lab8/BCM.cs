@@ -50,14 +50,20 @@ namespace Lab8
                     r = Convert.ToByte(r_bin, 2);
 
                     /* B byte */
-                    byte b = pixel.R;
+                    byte b = pixel.B;
                     string b_bin = Convert.ToString(b, 2).PadLeft(8, '0');
                     b_bin = b_bin.Substring(0, b_bin.Length - 2) + message[k + 2] + message[k + 3];
                     b = Convert.ToByte(b_bin, 2);
 
                     k += 4;
+                    /*  Following steps helps with extraction with original file    */
+                    byte g = pixel.G;
+                    if (pixel.R == r && pixel.B == b)
+                    {
+                        g = (byte)((g + 1) % 255);
+                    }
 
-                    Color newPixel = Color.FromArgb(r, pixel.G, b);
+                    Color newPixel = Color.FromArgb(r, g, b);
                     img.SetPixel(i, index, newPixel);
                 }
             }
@@ -148,8 +154,11 @@ namespace Lab8
 
         private string getBits(byte b, int bitsNumber)
         {
-            string bin = Convert.ToString(b, 2).PadLeft(8, '0');
-            return bin.Substring(bin.Length - bitsNumber);
+            byte bits = (byte)(b & ((1 << bitsNumber) - 1));
+            return Convert.ToString(bits, 2).PadLeft(bitsNumber, '0');
+            
+            /*string bin = Convert.ToString(b, 2).PadLeft(8, '0');
+            return bin.Substring(bin.Length - bitsNumber);*/
         }
         private void printLine(int a)
         {
