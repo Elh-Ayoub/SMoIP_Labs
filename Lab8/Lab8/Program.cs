@@ -50,7 +50,14 @@ namespace Lab8
             }
             else if (args.Length == 3 && args[0] == "-x")
             {
-                bcm.extract(args[1], args[2]);
+                if(Path.GetExtension(args[2]) == ".png" || Path.GetExtension(args[2]) == ".jpeg")
+                {
+                    bcm.extractUsingOriginal(args[1], args[2]);
+                }
+                else
+                {
+                    bcm.extractUsingKey(args[1], args[2]);
+                }                
             }
             else
             {
@@ -61,7 +68,7 @@ namespace Lab8
         {
             Console.WriteLine("Usage:");
             Console.WriteLine("Hide data in image file:\t[-h] [Path to image]");
-            Console.WriteLine("Extract data in image:  \t[-x] [Path to image] [Path to key file]");
+            Console.WriteLine("Extract data in image:  \t[-x] [Path to image] [Path to key file or Original image]");
         }
     }
 }

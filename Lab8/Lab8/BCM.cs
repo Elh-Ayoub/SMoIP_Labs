@@ -71,7 +71,7 @@ namespace Lab8
             successMsg("Data concealed successfully in image!");
         }
 
-        public void extract(string path, string KeyPath)
+        public void extractUsingKey(string path, string KeyPath)
         {
             string[] key = File.ReadAllText(KeyPath).Split('-');
             //int[] key = Array.ConvertAll(s_key, s => int.Parse(s));
@@ -105,6 +105,47 @@ namespace Lab8
             File.WriteAllBytes(resPath, bytes);
             successMsg("Data extracted successfully!");
         }
+
+        public void extractUsingOriginal(string path, string original)
+        {
+            Bitmap img = new Bitmap(path);
+            Bitmap org = new Bitmap(original);
+            if((img.Width != org.Width) || (img.Height != org.Height))
+            {
+                Console.WriteLine("This is not original image!");
+                return;
+            }
+            string message = "";
+            for(int i = 0; i < img.Width; i++)
+            {
+                for (int j = 0; j < img.Height; j++)
+                {
+                    Color pixel = img.GetPixel(i, j);
+                    Color originalPixel = org.GetPixel(i, j);
+                    if(pixel != originalPixel)
+                    {
+                        message += getBits(pixel.R, 2);
+                        message += getBits(pixel.B, 2);
+                    }
+                    
+                }
+                Console.Write("\rExtracting... \t{0}%", ((i * 100) / img.Width ));
+            }
+            Console.Write("\rExtracting... \t{0}%", 100);
+            Console.WriteLine("\nWrite path to save results (with file name):");
+            string resPath = Console.ReadLine();
+
+            int numOfBytes = message.Length / 8;
+            byte[] bytes = new byte[numOfBytes];
+            for (int i = 0; i < numOfBytes; ++i)
+            {
+                bytes[i] = Convert.ToByte(message.Substring(8 * i, 8), 2);
+            }           
+
+            File.WriteAllBytes(resPath, bytes);
+            successMsg("Data extracted successfully!");
+        }
+
         private string getBits(byte b, int bitsNumber)
         {
             string bin = Convert.ToString(b, 2).PadLeft(8, '0');
